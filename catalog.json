@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "pets": [
+    {
+      "id": "anaxa-sage",
+      "displayName": "那刻夏",
+      "description": "A tiny Anaxa-inspired wind erudition scholar pet in constant ultimate-state form.",
+      "packagePath": "pets/anaxa-sage",
+      "manifestPath": "pets/anaxa-sage/pet.json",
+      "spritesheetPath": "pets/anaxa-sage/spritesheet.webp",
+      "preview": {
+        "contactSheet": "previews/anaxa-sage/contact-sheet.png",
+        "videos": [
+          "previews/anaxa-sage/videos/idle.mp4",
+          "previews/anaxa-sage/videos/running-right.mp4",
+          "previews/anaxa-sage/videos/running-left.mp4",
+          "previews/anaxa-sage/videos/waving.mp4",
+          "previews/anaxa-sage/videos/jumping.mp4",
+          "previews/anaxa-sage/videos/failed.mp4",
+          "previews/anaxa-sage/videos/waiting.mp4",
+          "previews/anaxa-sage/videos/running.mp4",
+          "previews/anaxa-sage/videos/review.mp4"
+        ]
+      },
+      "sha256": {
+        "spritesheet": "5d77e1fecdb1c5e2686b4a781aee16110efd02b933c8212c8f68df68fac2dcc0"
+      },
+      "notes": [
+        "Fan-made Codex pet inspired by Anaxa from Honkai: Star Rail.",
+        "Character-left eye mask preserved; front-facing frames cover the viewer-right eye.",
+        "running-left was generated as a true left-running animation to preserve the eye-mask side."
+      ]
+    }
+  ]
+}
