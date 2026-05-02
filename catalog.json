@@ -10,6 +10,12 @@
       "spritesheetPath": "pets/anaxa-sage/spritesheet.webp",
       "preview": {
         "contactSheet": "previews/anaxa-sage/contact-sheet.png",
+        "gifs": [
+          "previews/anaxa-sage/gifs/idle.gif",
+          "previews/anaxa-sage/gifs/waiting.gif",
+          "previews/anaxa-sage/gifs/review.gif",
+          "previews/anaxa-sage/gifs/running-right.gif"
+        ],
         "videos": [
           "previews/anaxa-sage/videos/idle.mp4",
           "previews/anaxa-sage/videos/running-right.mp4",

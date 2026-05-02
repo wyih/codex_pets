@@ -44,10 +44,12 @@ def main() -> None:
             if actual_sha != expected_sha:
                 errors.append(f"{pet_id}: spritesheet sha256 mismatch")
 
-        for video in pet.get("preview", {}).get("videos", []):
-            path = ROOT / video
-            if not path.is_file():
-                errors.append(f"{pet_id}: missing {path.relative_to(ROOT)}")
+        preview = pet.get("preview", {})
+        for preview_kind in ["gifs", "videos"]:
+            for preview_path in preview.get(preview_kind, []):
+                path = ROOT / preview_path
+                if not path.is_file():
+                    errors.append(f"{pet_id}: missing {path.relative_to(ROOT)}")
 
     if errors:
         print("\n".join(errors))
