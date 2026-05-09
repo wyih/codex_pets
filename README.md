@@ -14,11 +14,22 @@ Fan-made animated pets for the Codex desktop app.
 
 Full MP4 previews live in `previews/anaxa-sage/videos/`.
 
+### MJ Legends
+
+![MJ Legends contact sheet](previews/mj-legends/contact-sheet.png)
+
+| Billie Jean | Bad | Smooth Criminal | Thriller |
+| --- | --- | --- | --- |
+| <img src="previews/mj-legends/gifs/idle.gif" width="160" alt="MJ Legends Billie Jean idle animation"> | <img src="previews/mj-legends/gifs/running-right.gif" width="160" alt="MJ Legends Bad running animation"> | <img src="previews/mj-legends/gifs/jumping.gif" width="160" alt="MJ Legends Smooth Criminal jumping animation"> | <img src="previews/mj-legends/gifs/failed.gif" width="160" alt="MJ Legends Thriller failed animation"> |
+
+Full MP4 previews live in `previews/mj-legends/videos/`.
+
 ## Pets
 
 | Pet | Folder | Preview |
 | --- | --- | --- |
 | 那刻夏 | `pets/anaxa-sage` | [contact sheet](previews/anaxa-sage/contact-sheet.png) |
+| MJ Legends | `pets/mj-legends` | [contact sheet](previews/mj-legends/contact-sheet.png) |
 
 ## Install
 
@@ -26,15 +37,19 @@ Install one pet:
 
 ```bash
 cp -R pets/anaxa-sage ~/.codex/pets/
+# or
+cp -R pets/mj-legends ~/.codex/pets/
 ```
 
 Install with the helper:
 
 ```bash
 ./scripts/install_pet.sh anaxa-sage
+# or
+./scripts/install_pet.sh mj-legends
 ```
 
-Then open Codex, select `那刻夏`, and start a task to see the animations.
+Then open Codex, select the installed pet, and start a task to see the animations.
 
 ## Repo Layout
 

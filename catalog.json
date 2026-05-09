@@ -36,6 +36,44 @@
         "Character-left eye mask preserved; front-facing frames cover the viewer-right eye.",
         "running-left was generated as a true left-running animation to preserve the eye-mask side."
       ]
+    },
+    {
+      "id": "mj-legends",
+      "displayName": "MJ Legends",
+      "description": "A tiny Michael Jackson-inspired Codex pet that keeps one chibi identity while rotating through classic stage-era looks.",
+      "packagePath": "pets/mj-legends",
+      "manifestPath": "pets/mj-legends/pet.json",
+      "spritesheetPath": "pets/mj-legends/spritesheet.webp",
+      "preview": {
+        "contactSheet": "previews/mj-legends/contact-sheet.png",
+        "gifs": [
+          "previews/mj-legends/gifs/idle.gif",
+          "previews/mj-legends/gifs/running-right.gif",
+          "previews/mj-legends/gifs/jumping.gif",
+          "previews/mj-legends/gifs/failed.gif"
+        ],
+        "videos": [
+          "previews/mj-legends/videos/idle.mp4",
+          "previews/mj-legends/videos/running-right.mp4",
+          "previews/mj-legends/videos/running-left.mp4",
+          "previews/mj-legends/videos/waving.mp4",
+          "previews/mj-legends/videos/jumping.mp4",
+          "previews/mj-legends/videos/failed.mp4",
+          "previews/mj-legends/videos/waiting.mp4",
+          "previews/mj-legends/videos/running.mp4",
+          "previews/mj-legends/videos/review.mp4"
+        ]
+      },
+      "sha256": {
+        "spritesheet": "dea5d3e3b42c46b161d0be1c415b78effee08a7b0b3c5a49245288c5df330827"
+      },
+      "notes": [
+        "Fan-made Codex pet inspired by Michael Jackson stage-era looks.",
+        "Billie Jean rows use the black fedora, black sequin jacket, cropped pants, white socks, loafers, and white glove.",
+        "Bad running rows use a no-hat black buckled leather look with no white glove.",
+        "Smooth Criminal rows use a white suit with blue shirt, white tie, and white-and-black fedora.",
+        "Thriller failed row uses a no-hat red outfit."
+      ]
     }
   ]
 }
