@@ -60,25 +60,25 @@ backends.
 List discovered pets:
 
 ```bash
-python3 -m shinsekai_pet_host.cli list
+uv run python -m shinsekai_pet_host.cli list
 ```
 
 Validate PetPacks:
 
 ```bash
-python3 -m shinsekai_pet_host.cli validate
+uv run python -m shinsekai_pet_host.cli validate
 ```
 
 Check Codex CLI auth:
 
 ```bash
-python3 -m shinsekai_pet_host.cli auth
+uv run python -m shinsekai_pet_host.cli auth
 ```
 
 Chat through Codex CLI:
 
 ```bash
-python3 -m shinsekai_pet_host.cli chat --pet anaxa-sage "帮我解释状态机"
+uv run python -m shinsekai_pet_host.cli chat --pet anaxa-sage "帮我解释状态机"
 ```
 
 Use an OpenAI-compatible API:
@@ -87,13 +87,13 @@ Use an OpenAI-compatible API:
 export PET_HOST_OPENAI_BASE_URL="https://api.openai.com"
 export PET_HOST_OPENAI_API_KEY="..."
 export PET_HOST_OPENAI_MODEL="gpt-5.4"
-python3 -m shinsekai_pet_host.cli chat --backend openai-compatible --pet mj-legends "Give me a short rehearsal note"
+uv run python -m shinsekai_pet_host.cli chat --backend openai-compatible --pet mj-legends "Give me a short rehearsal note"
 ```
 
-Optional PySide preview:
+Optional PySide desktop host:
 
 ```bash
-python3 -m shinsekai_pet_host.desktop_preview
+uv run --extra desktop python -m shinsekai_pet_host.cli desktop
 ```
 
 ## Repo Layout
@@ -129,7 +129,7 @@ load through the Shinsekai Pet Host prototype.
 
 ```bash
 ./scripts/validate_catalog.py
-python3 -m shinsekai_pet_host.cli validate
+uv run python -m shinsekai_pet_host.cli validate
 ```
 
 Keep assets GitHub-friendly. A finished Codex pet spritesheet is usually small enough for normal git storage.

@@ -24,6 +24,10 @@ def main(argv: list[str] | None = None) -> int:
         return cmd_validate(pets)
     if args.command == "auth":
         return cmd_auth(args)
+    if args.command == "desktop":
+        from shinsekai_pet_host.desktop_preview import main as desktop_main
+
+        return desktop_main()
     if args.command == "chat":
         return cmd_chat(args, pets)
     parser.print_help()
@@ -37,6 +41,7 @@ def build_parser() -> argparse.ArgumentParser:
     sub.add_parser("validate", help="Validate discovered PetPacks")
     auth = sub.add_parser("auth", help="Show Codex CLI login status")
     auth.add_argument("--codex-bin", default="codex")
+    sub.add_parser("desktop", help="Open the optional PySide desktop host")
     chat = sub.add_parser("chat", help="Send a message through a backend")
     chat.add_argument("message")
     chat.add_argument("--pet", default="anaxa-sage")
