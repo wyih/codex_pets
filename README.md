@@ -51,6 +51,51 @@ Install with the helper:
 
 Then open Codex, select the installed pet, and start a task to see the animations.
 
+## Shinsekai Pet Host Prototype
+
+This repo also includes a Phase 1 prototype for a Shinsekai-style desktop pet
+host. It treats pets as extensible PetPacks and can route chat through pluggable
+backends.
+
+List discovered pets:
+
+```bash
+python3 -m shinsekai_pet_host.cli list
+```
+
+Validate PetPacks:
+
+```bash
+python3 -m shinsekai_pet_host.cli validate
+```
+
+Check Codex CLI auth:
+
+```bash
+python3 -m shinsekai_pet_host.cli auth
+```
+
+Chat through Codex CLI:
+
+```bash
+python3 -m shinsekai_pet_host.cli chat --pet anaxa-sage "帮我解释状态机"
+```
+
+Use an OpenAI-compatible API:
+
+```bash
+export PET_HOST_OPENAI_BASE_URL="https://api.openai.com"
+export PET_HOST_OPENAI_API_KEY="..."
+export PET_HOST_OPENAI_MODEL="gpt-5.4"
+python3 -m shinsekai_pet_host.cli chat --backend openai-compatible --pet mj-legends "Give me a short rehearsal note"
+```
+
+Optional PySide preview:
+
+```bash
+python3 -m shinsekai_pet_host.desktop_preview
+```
+
 ## Repo Layout
 
 ```text
@@ -58,6 +103,8 @@ pets/
   <pet-id>/
     pet.json
     spritesheet.webp
+    persona.md
+    dialogue.yaml
 previews/
   <pet-id>/
     contact-sheet.png
@@ -67,19 +114,22 @@ catalog.json
 scripts/
 ```
 
-Each pet folder is self-contained and ready to copy into `~/.codex/pets/`.
+Each pet folder is self-contained and ready to copy into `~/.codex/pets/` or
+load through the Shinsekai Pet Host prototype.
 
 ## Add A Pet
 
 1. Create `pets/<pet-id>/pet.json` and `pets/<pet-id>/spritesheet.webp`.
-2. Add `previews/<pet-id>/contact-sheet.png`.
-3. Add preview GIFs under `previews/<pet-id>/gifs/`.
-4. Add preview videos under `previews/<pet-id>/videos/`.
-5. Add the pet to `catalog.json`.
-6. Run:
+2. Add `pets/<pet-id>/persona.md` and `pets/<pet-id>/dialogue.yaml`.
+3. Add `previews/<pet-id>/contact-sheet.png`.
+4. Add preview GIFs under `previews/<pet-id>/gifs/`.
+5. Add preview videos under `previews/<pet-id>/videos/`.
+6. Add the pet to `catalog.json`.
+7. Run:
 
 ```bash
 ./scripts/validate_catalog.py
+python3 -m shinsekai_pet_host.cli validate
 ```
 
 Keep assets GitHub-friendly. A finished Codex pet spritesheet is usually small enough for normal git storage.
