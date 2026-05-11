@@ -3,7 +3,7 @@ import unittest
 
 from shinsekai_pet_host.host_controller import PetHostController
 from shinsekai_pet_host.petpack import PetRegistry
-from shinsekai_pet_host.runtime import PetAnimator
+from shinsekai_pet_host.runtime import AmbientStateScheduler, PetAnimator
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -17,6 +17,11 @@ class RuntimeTests(unittest.TestCase):
         self.assertEqual(frame.index, 1)
         self.assertEqual(frame.x, pet.atlas.cell_width)
         self.assertEqual(frame.y, 7 * pet.atlas.cell_height)
+
+    def test_ambient_scheduler_rotates_states_by_tick(self) -> None:
+        scheduler = AmbientStateScheduler([("idle", 2), ("waving", 1), ("jumping", 2)])
+        states = [scheduler.state_at(tick).state for tick in range(6)]
+        self.assertEqual(states, ["idle", "idle", "waving", "jumping", "jumping", "idle"])
 
     def test_controller_requires_workspace_for_work_mode(self) -> None:
         pet = PetRegistry([ROOT / "pets"]).discover()[0]
@@ -41,4 +46,3 @@ class RuntimeTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
-

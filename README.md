@@ -96,6 +96,8 @@ Optional PySide desktop host:
 uv run --extra desktop python -m shinsekai_pet_host.cli desktop
 ```
 
+The desktop host opens as a compact floating pet. Right-click the pet or bubble to change Pet, Backend, Mode, Workspace, Auth, and Log. Long replies are kept in Log while the bubble stays as a short preview.
+
 If macOS reports that the Qt platform plugin `cocoa` cannot be initialized, run:
 
 ```bash

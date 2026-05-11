@@ -29,6 +29,49 @@ class AnimationFrame:
     height: int
 
 
+@dataclass(frozen=True)
+class AmbientState:
+    state: str
+    start_tick: int
+    duration_ticks: int
+
+
+DEFAULT_AMBIENT_SEQUENCE: tuple[tuple[str, int], ...] = (
+    ("idle", 8),
+    ("waving", 4),
+    ("idle", 6),
+    ("jumping", 5),
+    ("idle", 7),
+    ("running-right", 8),
+    ("idle", 5),
+    ("running-left", 8),
+    ("waiting", 6),
+)
+
+
+class AmbientStateScheduler:
+    def __init__(self, sequence: list[tuple[str, int]] | tuple[tuple[str, int], ...] | None = None):
+        self.sequence = tuple(sequence or DEFAULT_AMBIENT_SEQUENCE)
+        if not self.sequence:
+            raise ValueError("ambient sequence must contain at least one state")
+        for state, duration in self.sequence:
+            if duration <= 0:
+                raise ValueError(f"ambient state {state} must have a positive duration")
+        self.total_ticks = sum(duration for _, duration in self.sequence)
+
+    def state_at(self, tick: int) -> AmbientState:
+        position = tick % self.total_ticks
+        start_tick = tick - position
+        elapsed = 0
+        for state, duration in self.sequence:
+            end = elapsed + duration
+            if position < end:
+                return AmbientState(state=state, start_tick=start_tick + elapsed, duration_ticks=duration)
+            elapsed = end
+        state, duration = self.sequence[-1]
+        return AmbientState(state=state, start_tick=start_tick + elapsed - duration, duration_ticks=duration)
+
+
 class PetAnimator:
     def __init__(self, atlas: AtlasMetadata):
         self.atlas = atlas
@@ -51,4 +94,3 @@ class PetAnimator:
 
     def _state_info(self, state: str) -> tuple[int, int]:
         return STATE_ROWS.get(state, STATE_ROWS["idle"])
-
