@@ -96,6 +96,13 @@ Optional PySide desktop host:
 uv run --extra desktop python -m shinsekai_pet_host.cli desktop
 ```
 
+If macOS reports that the Qt platform plugin `cocoa` cannot be initialized, run:
+
+```bash
+uv run --extra desktop python -m shinsekai_pet_host.cli doctor
+uv sync --extra desktop --reinstall-package PySide6 --reinstall-package PySide6-Addons --reinstall-package PySide6-Essentials --reinstall-package shiboken6
+```
+
 ## Repo Layout
 
 ```text

@@ -24,6 +24,8 @@ def main(argv: list[str] | None = None) -> int:
         return cmd_validate(pets)
     if args.command == "auth":
         return cmd_auth(args)
+    if args.command == "doctor":
+        return cmd_doctor()
     if args.command == "desktop":
         from shinsekai_pet_host.desktop_preview import main as desktop_main
 
@@ -41,6 +43,7 @@ def build_parser() -> argparse.ArgumentParser:
     sub.add_parser("validate", help="Validate discovered PetPacks")
     auth = sub.add_parser("auth", help="Show Codex CLI login status")
     auth.add_argument("--codex-bin", default="codex")
+    sub.add_parser("doctor", help="Check optional desktop Qt/PySide setup")
     sub.add_parser("desktop", help="Open the optional PySide desktop host")
     chat = sub.add_parser("chat", help="Send a message through a backend")
     chat.add_argument("message")
@@ -82,6 +85,15 @@ def cmd_auth(args: argparse.Namespace) -> int:
     status = CodexAuthService(codex_bin=args.codex_bin).status()
     print(status.message)
     return 0 if status.ok else 1
+
+
+def cmd_doctor() -> int:
+    from shinsekai_pet_host.qt_doctor import run_qt_doctor
+
+    result = run_qt_doctor()
+    for line in result.lines:
+        print(line)
+    return 0 if result.ok else 1
 
 
 def cmd_chat(args: argparse.Namespace, pets: list[PetPack]) -> int:
